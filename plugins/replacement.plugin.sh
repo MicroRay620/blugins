@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#!banager/plugin
 # name = Replacement Commands 
 # owner = RubyRose
 # source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/nixos.plugin.sh
