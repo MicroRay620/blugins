@@ -8,11 +8,11 @@ source -- "$XDG_DATA_HOME/banager/commands/package_managers.sh"
 source -- "$XDG_DATA_HOME/banager/commands/declare.sh"
 source -- "$XDG_DATA_HOME/banager/commands/alias.sh"
 source -- "$XDG_CONFIG_HOME/banager/config.sh"
-if [ -e "$XDG_CACHE_HOME/banager/aur.sh" ]; then 
-    source -- "$XDG_CACHE_HOME/banager/aur.sh"
+if [ -e "$XDG_CACHE_HOME/banager/aur.command.sh" ]; then 
+    source -- "$XDG_CACHE_HOME/banager/plugins/aur.command.sh"
 else
-    touch "$XDG_CACHE_HOME/banager/aur.sh"
-    source -- "$XDG_CACHE_HOME/banager/aur.sh"
+    touch "$XDG_CACHE_HOME/banager/aur.command.sh"
+    source -- "$XDG_CACHE_HOME/banager/aur.command.sh"
 fi
 aur=( "yay" "paru" )
 aur_num=0
@@ -33,9 +33,8 @@ if [ "$PKG_MGR" = "${managers[3]}" ]; then
                 read -er aur_choice 
                 case "$aur_choice" in 
                     *yay* | *Yay* | *YAY*) aur_choice="yay" ;;
-                    *chaotic* ) aur_choice="pacman" ;;
-                    *paru* | *Paru* | *PARU* | *) aur_choice="paru" ;;
-
+                    *paru* | *Paru* | *PARU*) aur_choice="paru" ;;
+                    *chaotic* | *) aur_choice="pacman" ;;
                 esac
                 break   
             fi
@@ -49,7 +48,7 @@ if [ "$PKG_MGR" = "${managers[3]}" ]; then
 
         AUR="$aur_choice"
         cached_aur="$aur_choice"
-        echo -e "$bash_declare\n$bash_gen\ncached_aur=$cached_aur" >> "$XDG_CACHE_HOME/banager/aur.sh"
+        echo -e "$bash_declare\n$bash_gen\ncached_aur=$cached_aur" >> "$XDG_CACHE_HOME/banager/aur.command.sh"
     fi
     if [ "$cache_aur" = "chaotic" ]; then
         chaotic=$(grep "Include = /etc/pacman.d/chaotic-mirrorlist" /etc/pacman.conf)
@@ -62,6 +61,9 @@ if [ "$PKG_MGR" = "${managers[3]}" ]; then
         AUR="$SUPER pacman"
     else 
         AUR="$SUPER pacman"
+    fi
+    if command -v ble &>/dev/null; then 
+        $AUR blesh
     fi
     if [ "$distro_alias" = "true" ]; then
         alias extpacadd='$SUPER $PKG_MGR -U'
