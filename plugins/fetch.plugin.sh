@@ -3,14 +3,14 @@
 # owner = RubyRose
 # source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/fetch.plugin.sh
 # shellcheck source=/dev/null
-source -- "$XDG_DATA_HOME/banager/commands/declare.sh"
-
+source -- "$XDG_DATA_HOME/banager/src/declare.sh"
+source -- "${XDG_CONFIG_HOME:-$HOME/.config}/banager/config.sh"
 # All of these may become their own file, idk yet
 # System Info Checks
 # RandomFlags
 RandomFlags() {
     # This will randomly give you a hyfetch flag
-    RANDOM=$(date +%s)
+    local RANDOM=$(date +%s)
     flags=(transgender transfeminine lesbian sapphic finsexual femboy gendernonconforming2 plural femme)
     use_flag="${flags[$(( RANDOM % ${#flags[@]} ))]}"
     hyfetch -b fastfetch -p "$use_flag"
@@ -20,6 +20,7 @@ Troll() {
     fetch_file="$XDG_CONFIG_HOME/banager/user/fetch.sh"
     if [[ ! -e "$fetch_file" ]]; then 
         touch "$fetch_file"
+        # shellcheck disable=SC2154
         echo -e "$bash_declare\n$bash_gen\n$dont_delete this file is needed for the Flag() function in the .bashrc file\n# This file is here to help check what fastfetch to use" >> "$fetch_file"
     fi
     # shellcheck disable=SC1090
@@ -91,4 +92,7 @@ Flag() {
     fi
 }
 alias clear='clear && $display_fetch'
+if [ "$show_flag" = "true" ]; then 
+    Flag
+fi
 

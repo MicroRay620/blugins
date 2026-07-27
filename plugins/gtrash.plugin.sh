@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
 # name = Gtrash Plugin 
 # owner = RubyRose
-# source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/gtrash.plugin.sh
-source -- "$XDG_DATA_HOME/banager/commands/declare.sh"
-prune="$XDG_CONFIG_HOME/banager/user/prune.sh"
+# description = 
+# source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/gtrash.plugin.sh
+# shellcheck source=/dev/null
+source -- "$XDG_DATA_HOME/banager/src/declare.sh"
+prune="${XDG_CACHE_HOME:-$HOME/.cache}/banager/user/prune.sh"
+touch "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh" 
+if command -v gtrash &>/dev/null; then 
+    if [ ! -e "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh" ]; then
+        touch "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh" 
+        gtrash completion bash >> "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh"
+        source -- "${XDG_CACHE_HOME:-$HOME/.cache}/banager/gtrash.completion.sh"
+    else 
+        source -- "${XDG_CACHE_HOME:-$HOME/.cache}/banager/gtrash.completion.sh"
+    fi
+fi
 if [ ! -e "$prune" ]; then
     touch "$prune"
     echo "Would you like to prune in days or size? "
@@ -38,12 +50,15 @@ if [ ! -e "$prune" ]; then
             read -r byte_choice
             chosen_prune="$size_choice$byte_choice"
     esac
+    # shellcheck disable=SC2154
     echo -e "$bash_declare\n$bash_gen\n$dont_delete\npruning=\"$prune_denotion\"\nprune=$chosen_prune" >> "$prune"
 fi
 # shellcheck disable=SC1090
 source "$prune"
 if command -v &>/dev/null; then
     if [ -z "${XDG_DATA_HOME:-$HOME/.local/Trash}" ]; then
+        # shellcheck disable=SC2154
         gtrash prune "$pruning $prune"
     fi
 fi
+alias rm="gtrash put"

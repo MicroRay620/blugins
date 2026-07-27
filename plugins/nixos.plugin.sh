@@ -6,7 +6,7 @@
 # shellcheck source=/dev/null
 source -- "$XDG_DATA_HOME/banager/commands/declare.sh"
 source -- "$XDG_CONFIG_HOME/banager/config.sh"
-nix_user="$XDG_CONFIG_HOME/banager/user/nixos.sh"
+nix_user="${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/nixos..sh"
 if command -v nix &>/dev/null; then 
     if [ ! -e "$nix_user" ]; then 
         touch "$XDG_CONFIG_HOME/banager/user/nixos.sh"

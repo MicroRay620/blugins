@@ -2,10 +2,10 @@
 #!banager/plugin
 # name = System Update Plugin
 # owner = RubyRose
-# source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/nixos.plugin.sh
+# source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/nixos.plugin.sh
 # shellcheck source=/dev/null
-source -- "$XDG_DATA_HOME/banager/commands/declare.sh"
-source -- "$XDG_DATA_HOME/banager/commands/alias.sh"
+source -- "$XDG_DATA_HOME/banager/src/declare.sh"
+source -- "$XDG_DATA_HOME/banager/src/alias.sh"
 SysUpdate() {
     # Source - https://stackoverflow.com/a/39959192
     # Posted by Filippo Lauria, modified by community. See post 'Timeline' for change history
@@ -15,6 +15,7 @@ SysUpdate() {
     if ! command -v nix &>/dev/null ; then
         if [ ! -e "$update_file" ]; then
             touch "$update_file"
+            # shellcheck disable=SC2154
             echo -e "$bash_declare\n$bash_gen\n$dont_delete the SysUpdate() function in the .bashrc file" >> "$update_file"
         fi
 
@@ -38,28 +39,27 @@ SysUpdate() {
         if [ -z "$update_choice" ]; then
             # shellcheck disable=SC2004
             if (( $days%$update_frequency == 0 )); then
-                echo -e "IT'S SYSTEM UPDATE DAY!!!\nWould you like to update? [/N]"
+                echo -e "IT'S SYSTEM UPDATE DAY!!!\nWould you like to update? [y/N]"
                 read -r update_option
                 case $update_option in
                     "y" | "Y" | "yes" | "Yes" | "YES")
-                        if [ "$PKG_MGR" = "pacman" ]; then
-                            if [ "$AUR" = "paru" ]; then
-                                paru
-                            elif [ "$AUR" = "yay" ]; then
-                                yay
-                            fi
-                            flatpak update -y
-                            am -u
-                        else
-                            # shellcheck disable=SC2086
-                            $SUPER $PKG_MGR $UPDATE
-                            flatpak update -y
-                            am -u
-                        fi
+                        # shellcheck disable=SC2086
+                        case "$PKG_MGR" in 
+                            pacman)
+                                case "$AUR" in 
+                                    paru) paru ;;
+                                    yay) yay ;;
+                                    pacman) $SUPER "$PKG_MGR" -Syu ;;
+                                esac
+                                ;;
+                            *) $SUPER "$PKG_MGR $UPDATE" ;;
+                        esac
+                        flatpak update -y
+                        am -u
                         update_option="no"
                         ;;
                     "n" | "N" | "no" | "No" | "NO")
-                        echo "Alright. Skipping update :("
+                        echo "Alright... No update I guess :("
                         update_option="no"
                         ;;
                 esac
@@ -70,10 +70,11 @@ SysUpdate() {
         fi
     fi
 }
+SysUpdate
 if [[ "$PKG_MGR" = "pacman" ]]; then
     alias sysupdate='$backup && $AUR && flatpak update -y && $am'
 elif [[ "$PKG_MGR" = "nix" ]]; then
-    alias sysupdate='$backup && flatpake update -y && $am'
+    alias sysupdate='$backup && flatpak update -y && $am'
 else
     alias sysupdate='$backup && $SUPER $PKG_MGR $UPDATE && flatpak $UPDATE && $am'
 fi
