@@ -2,6 +2,8 @@
 
 This is the repository for the officially endorsed plugins for Banager
 
+Using plugins outside the officially endorsed repository has major risks and the quality and security of those plugins aren't guarenteed.
+The repository itself is under the CC BY-SA 4.0 license
 # Plugins
 - [AppManager Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/am.plugin.sh)
 - [Arch Linux Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/archlinux.plugin.sh)
