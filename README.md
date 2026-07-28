@@ -10,10 +10,14 @@ The repository itself is under the CC BY-SA 4.0 license
 # Plugins
 - [AppManager Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/am.plugin.sh)
 - [Arch Linux Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/archlinux.plugin.sh)
-- [System Info Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/fetch.plugin.sh)
+- [System Info Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/fetch.plugin.sh) 
+    - Dependencies: Fastfetch, Hyfetch, or Neofetch
 - [gTrash Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/gtrash.plugin.sh)
+    - Dependencies: gtrash
 - [NixOS Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/nixos.plugin.sh)
 - [Replacement Command Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/replacement.plugin.sh)
 - [Starship Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/starship.plugin.sh)
+    - Dependencies: Starship
 - [System Update Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/sysupdate.plugin.sh)
+    - Dependencies: flatpak, am/AppMan
 - [Zoxide Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/zoxide.plugin.sh)
