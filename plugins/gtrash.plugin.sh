@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # name = Gtrash Plugin 
 # owner = RubyRose
-# description = 
 # source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/gtrash.plugin.sh
+# description = 
 # shellcheck source=/dev/null
 source -- "$XDG_DATA_HOME/banager/src/declare.sh"
 prune="${XDG_CACHE_HOME:-$HOME/.cache}/banager/user/prune.sh"
