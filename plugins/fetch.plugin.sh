@@ -10,9 +10,10 @@ source -- "${XDG_CONFIG_HOME:-$HOME/.config}/banager/config.sh"
 # RandomFlags
 RandomFlags() {
     # This will randomly give you a hyfetch flag
-    local RANDOM=$(date +%s)
+    local rand 
+    rand=$(date +%s)
     flags=(transgender transfeminine lesbian sapphic finsexual femboy gendernonconforming2 plural femme)
-    use_flag="${flags[$(( RANDOM % ${#flags[@]} ))]}"
+    use_flag="${flags[$(( rand % ${#flags[@]} ))]}"
     hyfetch -b fastfetch -p "$use_flag"
     # echo "$use_flag" # INFO: this is here for debugging what pride flag is used
 }
@@ -92,6 +93,7 @@ Flag() {
     fi
 }
 alias clear='clear && $display_fetch'
+# shellcheck disable=SC2154
 if [ "$show_flag" = "true" ]; then 
     Flag
 fi
