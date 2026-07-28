@@ -13,5 +13,7 @@ The repository itself is under the CC BY-SA 4.0 license
 - [System Info Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/fetch.plugin.sh)
 - [gTrash Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/gtrash.plugin.sh)
 - [NixOS Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/nixos.plugin.sh)
-- [Command Replacement Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/replacement.plugin.sh)
+- [Replacement Command Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/replacement.plugin.sh)
+- [Starship Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/starship.plugin.sh)
 - [System Update Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/sysupdate.plugin.sh)
+- [Zoxide Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/zoxide.plugin.sh)
