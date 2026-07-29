@@ -2,6 +2,7 @@
 #!banager/plugin
 # name = AppManager Plugin 
 # owner = RubyRose
+# license = CC BY-SA 4.0 International
 # description = This is a plugin for the AM/AppMan appimage package manager
 # source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/am.plugin.sh
 # shellcheck source=/dev/null 

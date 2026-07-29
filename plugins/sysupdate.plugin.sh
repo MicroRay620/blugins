@@ -2,6 +2,8 @@
 #!banager/plugin
 # name = System Update Plugin
 # owner = RubyRose
+# license = CC BY-SA 4.0 International
+# description = A System Update plugin that will automatically update your system 
 # source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/nixos.plugin.sh
 # shellcheck source=/dev/null
 source -- /etc/os-release

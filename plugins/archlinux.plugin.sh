@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # name = Arch Linux Plugin 
 # owner = RubyRose
+# license = CC BY-SA 4.0 International
 # description = This is a plugin to enable commands for the AUR and arch specific things
 # source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/archlinux.plugin.sh
 # shellcheck source=/dev/null

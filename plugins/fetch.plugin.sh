@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # name = Fastfetch Plugin 
 # owner = RubyRose
+# license = CC BY-SA 4.0 International
+# description = A system information plugin that adds allows for some unique options with your preferred fetch
 # source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/fetch.plugin.sh
 # shellcheck source=/dev/null
 source -- "$XDG_DATA_HOME/banager/src/declare.sh"
@@ -70,15 +72,17 @@ Flag() {
             "fastfetch") 
                 fastfetch 
                 export display_fetch="fastfetch"
+                alias smallfetch='fastfetch -l small'
                 ;;
             "hyfetch") 
                 hyfetch 
                 export display_fetch="hyfetch"
+                alias hydistro='hyfetch --distro='
                 ;;
-           #solar_system 
             "random") 
                 RandomFlags
                 export display_fetch="RandomFlags"
+                alias hydistro='hyfetch --distro='
                 ;;
             "troll") 
                 if [[ "$backend" = "fastfetch" ]]; then 

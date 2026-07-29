@@ -2,6 +2,7 @@
 #!banager/plugin
 # name = NixOS Plugin 
 # owner = RubyRose
+# license = <LICENSE OF THE CODE>
 # source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/nixos.plugin.sh
 # shellcheck source=/dev/null
 source -- "$XDG_DATA_HOME/banager/commands/declare.sh"

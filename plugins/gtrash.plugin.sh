@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # name = Gtrash Plugin 
 # owner = RubyRose
+# license = CC BY-SA 4.0 International
 # source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/gtrash.plugin.sh
 # description = 
 # shellcheck source=/dev/null

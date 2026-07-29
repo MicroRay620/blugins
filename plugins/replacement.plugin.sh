@@ -2,6 +2,7 @@
 #!banager/plugin
 # name = Replacement Commands 
 # owner = RubyRose
+# license = <LICENSE OF THE CODE>
 # description = A plugin to allow you to easily just have the commands be something findable
 # source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/nixos.plugin.sh
 grabs=("rg" "rga" "grep")
