@@ -15,7 +15,7 @@ else
     touch "$XDG_CACHE_HOME/banager/aur.command.sh"
     source -- "$XDG_CACHE_HOME/banager/aur.command.sh"
 fi
-aur=( "yay" "paru" )
+aur=("yay" "paru")
 aur_num=0
 # shellcheck disable=SC2154
 if [ "$PKG_MGR" = "${managers[3]}" ]; then
@@ -66,13 +66,11 @@ if [ "$PKG_MGR" = "${managers[3]}" ]; then
     if command -v ble &>/dev/null; then 
         $AUR blesh
     fi
-    if [ "$distro_alias" = "true" ]; then
-        alias extpacadd='$SUPER $PKG_MGR -U'
-        alias auradd='$AUR $INSTALL'
-        alias aurrm='$AUR $REMOVE'
-        alias aurudate='$AUR $UPDATE'
-        if command -v downgrade &>/dev/null; then 
-            alias downgrade='$SUPER downgrade'
-        fi
+    alias extpacadd='$SUPER $PKG_MGR -U'
+    alias auradd='$AUR $INSTALL'
+    alias aurrm='$AUR $REMOVE'
+    alias aurudate='$AUR $UPDATE'
+    if command -v downgrade &>/dev/null; then 
+        alias downgrade='$SUPER downgrade'
     fi
 fi
