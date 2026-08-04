@@ -97,8 +97,5 @@ Flag() {
     fi
 }
 alias clear='clear && $display_fetch'
-# shellcheck disable=SC2154
-if [ "$show_flag" = "true" ]; then 
-    Flag
-fi
+Flag
 
