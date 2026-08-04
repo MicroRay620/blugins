@@ -30,9 +30,9 @@ else
                 case "$ID" in 
                     "nixos") 
                         echo -e "Look at either:
-                        \n- https://github.com/zhaofengli/nix-homebrew
-                        \nor
-                        \nhttps://mynixos.com/options/homebrew" 
+                        - https://github.com/zhaofengli/nix-homebrew
+                        or
+                        https://mynixos.com/options/homebrew" 
                         ;;
                     *)
                         case "$ID_LIKE" in 
@@ -52,5 +52,4 @@ else
             ;;
         *) echo "Why do you have this plugin installed then?" ;;
     esac
-
 fi
