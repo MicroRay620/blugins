@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 #!banager/plugin
 # name = Flatpak Plugin  
+# version = 1.0.0
 # owner = RubyRose
 # license = CC BY-SA 4.0 International
 # description = A flatpak that adds more functionality to your system.
-# source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/flatpak.plugin.sh 
+# source = https://codeberg.org/RubyRose/blugins/raw/branch/main/plugins/flatpak.plugin.sh 
 # shellcheck source=/dev/null
 source -- /etc/os-release
 source -- "${XDG_DATA_HOME:-$HOME/.local/share}/banager/src/declare.sh"

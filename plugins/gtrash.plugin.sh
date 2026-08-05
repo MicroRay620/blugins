@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
+#!banager/plugin
 # name = Gtrash Plugin 
+# version = 1.0.0
 # owner = RubyRose
 # license = CC BY-SA 4.0 International
-# source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/gtrash.plugin.sh
+# source = https://codeberg.org/RubyRose/blugins/raw/branch/main/plugins/gtrash.plugin.sh
 # description = 
 # shellcheck source=/dev/null
 source -- "$XDG_DATA_HOME/banager/src/declare.sh"

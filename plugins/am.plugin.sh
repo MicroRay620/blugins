@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 #!banager/plugin
 # name = AppManager Plugin 
+# version = 1.0.0
 # owner = RubyRose
 # license = CC BY-SA 4.0 International
 # description = This is a plugin for the AM/AppMan appimage package manager
-# source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/am.plugin.sh
+# source = https://codeberg.org/RubyRose/blugins/raw/branch/main/plugins/am.plugin.sh
 # shellcheck source=/dev/null 
 source -- "${XDG_DATA_HOME:-$HOME/.local/share}/banager/src/declare"
 am_list=( "am" "appman" )

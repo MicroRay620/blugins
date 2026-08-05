@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-# name = Fastfetch Plugin 
+#!banager/plugin
+# name = Fastfetch Plugin
+# version = 1.0.0
 # owner = RubyRose
 # license = CC BY-SA 4.0 International
 # description = A system information plugin that adds allows for some unique options with your preferred fetch
-# source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/fetch.plugin.sh
+# source = https://codeberg.org/RubyRose/banager/raw/branch/main/plugins/fetch.plugin.sh
 # shellcheck source=/dev/null
 source -- "$XDG_DATA_HOME/banager/src/declare.sh"
 source -- "${XDG_CONFIG_HOME:-$HOME/.config}/banager/config.sh"

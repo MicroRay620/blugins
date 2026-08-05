@@ -4,7 +4,7 @@
 # owner = RubyRose
 # license = <LICENSE OF THE CODE>
 # description = A plugin to allow you to easily just have the commands be something findable
-# source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/nixos.plugin.sh
+# source = https://codeberg.org/RubyRose/banager/raw/branch/main/plugins/nixos.plugin.sh
 grabs=("rg" "rga" "grep")
 for grab in "${grabs[@]}"; do
     if command -v "$grab" &>/dev/null; then 

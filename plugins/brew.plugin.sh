@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 #!banager/plugin
 # name = Brew Alias Plugin  
+# version = 1.0.0
 # owner = RubyRose
 # license = CC BY-SA 4.0 International
 # description = A plugin that just adds custom aliases for the Homebrew package manager
-# source = https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/brew.plugin.sh 
+# source = https://codeberg.org/RubyRose/blugins/raw/branch/main/plugins/brew.plugin.sh 
 # shellcheck source=/dev/null
 source -- /etc/os-release
 source -- "${XDG_DATA_HOME:-$HOME/.local/share}/banager/src/declare.sh"

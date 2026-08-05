@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
+#!banager/plugin
 # name = Arch Linux Plugin 
+# version = 1.0.0
 # owner = RubyRose
 # license = CC BY-SA 4.0 International
 # description = This is a plugin to enable commands for the AUR and arch specific things
-# source = https://codeberg.org/RubyRose/banager/src/branch/main/plugins/archlinux.plugin.sh
+# source = https://codeberg.org/RubyRose/banager/raw/branch/main/plugins/archlinux.plugin.sh
 # shellcheck source=/dev/null
 source -- "$XDG_DATA_HOME/banager/commands/package_managers.sh"
 source -- "$XDG_DATA_HOME/banager/commands/declare.sh"
