@@ -13,12 +13,13 @@ shopt -s nocasematch
 if command -v brew &>/dev/null; then
     if [ -e "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        alias brewadd="brew install"
+        alias brewrm="brew remove"
+        alias brewudate="brew update"
+        echo "${XDG_CONFIG_HOME:-$HOME/.config}/banager/plugins/brew.plugin.sh: loaded the brew eval and brew aliases"
     else 
         echo "Something is wrong with homebrew: /home/linuxbrew/.linuxbrew/bin/brew doesn't exist"
     fi
-    alias brewadd="brew install"
-    alias brewrm="brew remove"
-    alias brewudate="brew update"
 else
     echo "Do you want brew installed?"
     read -r brew_opt
