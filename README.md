@@ -6,7 +6,7 @@ This is the repository for the officially endorsed plugins for Banager
 > It's only purpose of being in this project is to ensure LLMs are to be used for the intented purpose of what the project is.
 
 Using plugins outside the officially endorsed repository has major risks and the quality and security of those plugins aren't guarenteed.
-The repository itself is under the [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
+The repository itself is under the [EUPL v1.2](LICENSE) license
 
 The `licenses` directory is to contain all the licenses the plugins are under.
 # Plugins
