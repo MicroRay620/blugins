@@ -6,7 +6,9 @@ This is the repository for the officially endorsed plugins for Banager
 > It's only purpose of being in this project is to ensure LLMs are to be used for the intented purpose of what the project is.
 
 Using plugins outside the officially endorsed repository has major risks and the quality and security of those plugins aren't guarenteed.
-The repository itself is under the CC BY-SA 4.0 license
+The repository itself is under the [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
+
+The `licenses` directory is to contain all the licenses the plugins are under.
 # Plugins
 - [AppMan Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/am.plugin.sh)
 AppMan is a package manager for AppImages. This plugin enables it to work with banager and add various features for it.
@@ -18,4 +20,3 @@ AppMan is a package manager for AppImages. This plugin enables it to work with b
 - ~~[Starship Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/starship.plugin.sh)~~ Merged into [builtin.plugin.sh](https://codeberg.org/RubyRose/banager/src/branch/main/src/builtin.plugin.sh)
 - [System Update Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/sysupdate.plugin.sh)
 - ~~[Zoxide Plugin](https://codeberg.org/RubyRose/blugins/src/branch/main/plugins/zoxide.plugin.sh)~~ Merged into [builtin.plugin.sh](https://codeberg.org/RubyRose/banager/src/branch/main/src/builtin.plugin.sh)
-
