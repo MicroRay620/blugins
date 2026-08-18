@@ -6,17 +6,17 @@
 # license = CC BY-SA 4.0 International
 # source = https://codeberg.org/RubyRose/blugins/raw/branch/main/plugins/gtrash.plugin.sh
 # description = 
-# shellcheck source=/dev/null
+# shellcheck disable=SC2154,SC1090 source=/dev/null
 source -- "$XDG_DATA_HOME/banager/src/declare.sh"
 prune="${XDG_CACHE_HOME:-$HOME/.cache}/banager/user/prune.sh"
 touch "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh" 
 if command -v gtrash &>/dev/null; then 
     if [ ! -e "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh" ]; then
         touch "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh" 
-        gtrash completion bash >> "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh"
+        eval gtrash completion bash > "${XDG_CACHE_HOME:-$HOME/.cache}"/banager/plugins/gtrash.completion.sh || exit 1
         source -- "${XDG_CACHE_HOME:-$HOME/.cache}/banager/gtrash.completion.sh"
     else 
-        source -- "${XDG_CACHE_HOME:-$HOME/.cache}/banager/gtrash.completion.sh"
+        source -- "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/gtrash.completion.sh"
     fi
 fi
 if [ ! -e "$prune" ]; then
