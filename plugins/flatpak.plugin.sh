@@ -6,7 +6,7 @@
 # license = CC BY-SA 4.0 International
 # description = A flatpak that adds more functionality to your system.
 # source = https://codeberg.org/RubyRose/blugins/raw/branch/main/plugins/flatpak.plugin.sh 
-# shellcheck source=/dev/null
+# shellcheck disable=SC2154 source=/dev/null 
 source -- /etc/os-release
 source -- "${XDG_DATA_HOME:-$HOME/.local/share}/banager/src/declare.sh"
 source -- "${XDG_DATA_HOME:-$HOME/.local/share}/banager/src/alias.sh"
@@ -26,9 +26,7 @@ if command -v flatpak &>/dev/null; then
                 level="--system"
                 ;;
         esac
-        # shellcheck disable=SC2154
         echo -e "$bash_declare\n$bash_gen\n$dont_delete\nlevel=$level" >> "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/flatpak.info.sh"
-        # shellcheck disable=SC2154
         if [ ! -e "$flathub" ]; then
             case "$ID" in 
                 "ubuntu") 
@@ -65,7 +63,6 @@ if command -v flatpak &>/dev/null; then
         else
             seal_run="flatpak run com.github.tchx84.Flatseal"
             if ! command "$seal_run" &>/dev/null; then 
-                # shellcheck disable=SC2154
                 flatpak "$fp_install" -y com.github.tchx84.Flatseal
                 echo -e "flatseal=true" >> "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/flatpak.info.sh"
             else 
@@ -73,7 +70,6 @@ if command -v flatpak &>/dev/null; then
             fi
         fi 
     fi
-    # shellcheck disable=SC2154
     if [ ! -e "$flatsweep" ]; then 
         flatpak "$flat_install" io.github.giantpinkrobots.flatsweep
         echo "flatsweep=true" >> "${XDG_CACHE_HOME:-$HOME/.cache}/banager/plugins/flatpak.info.sh"

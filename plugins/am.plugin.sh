@@ -6,7 +6,7 @@
 # license = CC BY-SA 4.0 International
 # description = This is a plugin for the AM/AppMan appimage package manager
 # source = https://codeberg.org/RubyRose/blugins/raw/branch/main/plugins/am.plugin.sh
-# shellcheck source=/dev/null 
+# shellcheck disable=SC2154 source=/dev/null 
 source -- "${XDG_DATA_HOME:-$HOME/.local/share}/banager/src/declare.sh"
 if command -v am &>/dev/null || command -v appman &>/dev/null; then 
     working=true 

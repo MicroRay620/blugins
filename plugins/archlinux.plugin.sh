@@ -1,23 +1,22 @@
 #!/usr/bin/env bash
 #!banager/plugin
 # name = Arch Linux Plugin 
-# version = 1.0.0
+# version = 1.0.1
 # owner = RubyRose
 # license = CC BY-SA 4.0 International
 # description = This is a plugin to enable commands for the AUR and arch specific things
 # source = https://codeberg.org/RubyRose/banager/raw/branch/main/plugins/archlinux.plugin.sh
-# shellcheck source=/dev/null
+# shellcheck disable=SC2154 source=/dev/null
 source -- "$XDG_DATA_HOME/banager/commands/package_managers.sh"
 source -- "$XDG_DATA_HOME/banager/commands/declare.sh"
 source -- "$XDG_DATA_HOME/banager/commands/alias.sh"
-source -- "$XDG_CONFIG_HOME/banager/config.sh"
+source -- "$XDG_CONFIG_HOME/banager/config"
 if [ -e "$XDG_CACHE_HOME/banager/aur.command.sh" ]; then 
     source -- "$XDG_CACHE_HOME/banager/plugins/aur.command.sh"
 else
     touch "$XDG_CACHE_HOME/banager/aur.command.sh"
     source -- "$XDG_CACHE_HOME/banager/aur.command.sh"
 fi
-# shellcheck disable=SC2154
 if [ "$PKG_MGR" = "${managers[3]}" ]; then
     if [ -z "$cache_aur" ] || [ ! "$cache_aur" = "chaotic" ]; then
         if command -v yay &>/dev/null; then 

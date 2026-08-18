@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2154,SC2034 source=/dev/null
 #!banager/plugin
 # name = Brew Alias Plugin  
 # version = 1.0.0

@@ -6,7 +6,7 @@
 # license = CC BY-SA 4.0 International
 # description = A system information plugin that adds allows for some unique options with your preferred fetch
 # source = https://codeberg.org/RubyRose/banager/raw/branch/main/plugins/fetch.plugin.sh
-# shellcheck source=/dev/null
+# shellcheck disable=SC1090,SC2154 source=/dev/null
 source -- "$XDG_DATA_HOME/banager/src/declare.sh"
 source -- "${XDG_CONFIG_HOME:-$HOME/.config}/banager/config.sh"
 # All of these may become their own file, idk yet
@@ -25,20 +25,17 @@ Troll() {
     fetch_file="$XDG_CONFIG_HOME/banager/user/fetch.sh"
     if [[ ! -e "$fetch_file" ]]; then 
         touch "$fetch_file"
-        # shellcheck disable=SC2154
         echo -e "$bash_declare\n$bash_gen\n$dont_delete this file is needed for the Flag() function in the .bashrc file\n# This file is here to help check what fastfetch to use" >> "$fetch_file"
     fi
-    # shellcheck disable=SC1090
     source "$fetch_file"
 }
 Flag() {
     fetch_file="$XDG_CONFIG_HOME/banager/user/fetch.sh"
     # This will load the troll function
     Troll 
-    # shellcheck disable=SC1090
     source "$fetch_file"
     
-    if [[ -z "$fetch" ]]; then
+    if [ -z "$fetch" ]; then
         echo "test [in -e '$fetch']"
         echo "Pick a fetch option? [random] [hyfetch] [fastfetch]"
         read -r flag 
@@ -66,7 +63,7 @@ Flag() {
                 ;;
         esac
     fi
-    if [[ "$fetch" = "fastfetch-small" ]]; then
+    if [ "$fetch" = "fastfetch-small" ]; then
         fastfetch -l small
         export display_fetch="fastfetch -l small"
     else
